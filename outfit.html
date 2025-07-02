@@ -138,6 +138,22 @@ header div:nth-of-type(1){
     background: #222 !important;
     color: #fff !important;
 }
+.change{
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+    color: #0d8fd8;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.change:hover{
+    scale: 1.1;
+}
 
 </style>
 <body id="mainBody">
@@ -154,7 +170,7 @@ header div:nth-of-type(1){
           <nav id="navLinks">
             <a href="index.html" class="home" >Home</a>
             
-            <a href="preference.html" class="preferences" >Preferences</a>
+            
           </nav>
         </div>
       
@@ -166,7 +182,9 @@ header div:nth-of-type(1){
     <section class="suggestions">
         
     </section>
+    <button class="change">Change Preferences</button>
  </main>
+
  <footer>
     <p>&copy; 2025 WeatherWear. All rights reserved.</p>
   </footer>
@@ -184,6 +202,7 @@ header div:nth-of-type(1){
         let heading = document.querySelector('.heading');
         let subtitle = document.querySelector('.subtitle');
         const degreeSymbol = '\u00B0';
+        let change = document.querySelector('.change');
 
         let pref = JSON.parse(localStorage.getItem('weatherwear_prefs') || '{}');
         if (!pref.gender) {
@@ -194,6 +213,10 @@ header div:nth-of-type(1){
         if (darkMode) {
             document.getElementById('mainBody').classList.add('dark-mode');
         }
+        
+        change.addEventListener('click', () => {
+            window.location.href = 'preference.html?city=' + city + '&temp=' + temp + '&description=' + description + '&main=' + main;
+        });
 
 
         
@@ -934,218 +957,146 @@ suggestions.innerHTML = "";
                 }
                 else if (pref.style == 'formal') {
                     
-            if (city) {
-                subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
-                
-            }else{
-                subtitle.innerHTML = `weather is  ${main}`;
-            }
-            heading.innerHTML = "Suggestions For womans";
-            suggestions.innerHTML = "";
+            
             if (main == "Clouds") {
-            img.src = "https://m.media-amazon.com/images/I/61oubNC8reL._AC_UL640_FMwebp_QL65_.jpg";
-            img1.src = "https://m.media-amazon.com/images/I/71TVzPMpRrL._AC_UL640_FMwebp_QL65_.jpg";
-            img2.src = "https://m.media-amazon.com/images/I/61FydVhNtuL._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/41IJIRBOswL.jpg";
-            img4.src = "https://m.media-amazon.com/images/I/31zHLVgWvPL._AC_UL640_FMwebp_QL65_.jpg";
-            img5.src = "https://m.media-amazon.com/images/I/61YmetPCQlL._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "Boldfit Women's Puffer Standard";
-            text1.textContent = "Alan Jones Clothing Women";
-            text2.textContent = "GRECIILOOKS Women's Woolen";
-            text3.textContent = "BAGHADBILLO Unisex-Adult";
-            text4.textContent = "BLACKSTEP Women's Fleece";
-            text5.textContent = "Alan Jones Clothing Women";
+            img.src = "https://m.media-amazon.com/images/I/515Uem8e+ML._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/71kYiLuvHGL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/61KmJwKn3IL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/71A7tYnlJuL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Women Formal Wear Collared";
+            text1.textContent = "ZaySoo Leather (Inside Fur)";
+            text2.textContent = "Smart Casual Formal Blazer for Women";
+            text3.textContent = "Smart Casual & Formal Blazer for Women";
+            
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
             div3.appendChild(img3);
-            div4.appendChild(img4);
-            div5.appendChild(img5);
             div.appendChild(text);
             div1.appendChild(text1);
             div2.appendChild(text2);
             div3.appendChild(text3);
-            div4.appendChild(text4);
-            div5.appendChild(text5);
             suggestions.appendChild(div);
             suggestions.appendChild(div1);
             suggestions.appendChild(div2);
             suggestions.appendChild(div3);
-            suggestions.appendChild(div4);
-            suggestions.appendChild(div5);
         }
         if (main == "Rain") {
-            img.src = "https://m.media-amazon.com/images/I/61zKLHk2q0L._AC_UL640_FMwebp_QL65_.jpg";
-            img1.src = "https://m.media-amazon.com/images/I/61X4E8m8dWL._AC_UL640_FMwebp_QL65_.jpg";
-            img2.src = "https://m.media-amazon.com/images/I/51y5HMqP7XL._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/41F-ZYSRUPL._AC_UL640_FMwebp_QL65_.jpg";
-            img4.src = "https://m.media-amazon.com/images/I/71EmkJZjnTL._AC_UL640_FMwebp_QL65_.jpg";
-            img5.src = "https://m.media-amazon.com/images/I/71qFYOLDGoL._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "THE CLOWNFISH Women's Raincoat";
-            text1.textContent = "HIGHLANDS Women's Raincoat";
-            text2.textContent = "Romano nx Women's Rain Skirt";
-            text3.textContent = "Romano Women's Rain Skirt And";
-            text4.textContent = "Robustt Unisex Raincoat With Hood";
-            text5.textContent = "HACER EVA Waterproof Unisex Rain";
+            img.src = "https://m.media-amazon.com/images/I/61X4E8m8dWL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/71e9TO4bpYL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/61st6NEIl6L._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/41RhCIgVtAL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "HIGHLANDS Women's Raincoat";
+            text1.textContent = "HACER EVA Poncho Raincoat";
+            text2.textContent = "Men's Plastic Adult Poncho";
+            text3.textContent = "Waterproof Shoe Cover";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
             div3.appendChild(img3);
-            div4.appendChild(img4);
-            div5.appendChild(img5);
             div.appendChild(text);
             div1.appendChild(text1);
             div2.appendChild(text2);
             div3.appendChild(text3);
-            div4.appendChild(text4);
-            div5.appendChild(text5);
             suggestions.appendChild(div);
             suggestions.appendChild(div1);
             suggestions.appendChild(div2);
             suggestions.appendChild(div3);
-            suggestions.appendChild(div4);
-            suggestions.appendChild(div5);
         }
         if (main == "Clear"){
-            img.src = "https://m.media-amazon.com/images/I/71g2eQvvE3L._AC_UL640_FMwebp_QL65_.jpg";
-            img1.src = "https://m.media-amazon.com/images/I/81KITQgC2RL._AC_UL640_FMwebp_QL65_.jpg";
-            img2.src = "https://m.media-amazon.com/images/I/61gZ7gbtK4L._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/71oaeGVaBIL._AC_UL640_FMwebp_QL65_.jpg";
-            img4.src = "https://m.media-amazon.com/images/I/71ojDi0wKlL._AC_UL640_FMwebp_QL65_.jpg";
-            img5.src = "https://m.media-amazon.com/images/I/61Cu27WVA9L._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "NOQUO Women's Handcrafted Sweater Crochet Knit Cover-Up Dress";
-            text1.textContent = "NOQUO Women's Sleeveless V-Neck";
-            text2.textContent = "Aahwan Solid Summer Beach";
-            text3.textContent = "Aahwan Striped Casual Sleeveless";
-            text4.textContent = "GoSriKi Women's Rayon Viscose";
-            text5.textContent = "ANNI DESIGNER Women's Cotton";
+            img.src = "https://m.media-amazon.com/images/I/71i8RSW9yVL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/810Vje9DY8L._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/71wp5-QV9gL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/81aExJuY-xL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Women's Black Cotton";
+            text1.textContent = "Women's Georgette Floral";
+            text2.textContent = "Summer Office wear Formal Dress";
+            text3.textContent = "Formal Shirt Top for Women";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
             div3.appendChild(img3);
-            div4.appendChild(img4);
-            div5.appendChild(img5);
             div.appendChild(text);
             div1.appendChild(text1);
             div2.appendChild(text2);
             div3.appendChild(text3);
-            div4.appendChild(text4);
-            div5.appendChild(text5);
             suggestions.appendChild(div);
             suggestions.appendChild(div1);
             suggestions.appendChild(div2);
             suggestions.appendChild(div3);
-            suggestions.appendChild(div4);
-            suggestions.appendChild(div5);
             
         }
 
                 }
                 else if (pref.style == 'sporty') {
-                    
-            if (city) {
-                subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
-                
-            }else{
-                subtitle.innerHTML = `weather is  ${main}`;
-            }
-            heading.innerHTML = "Suggestions For womans";
-            suggestions.innerHTML = "";
+           
             if (main == "Clouds") {
-            img.src = "https://m.media-amazon.com/images/I/61oubNC8reL._AC_UL640_FMwebp_QL65_.jpg";
-            img1.src = "https://m.media-amazon.com/images/I/71TVzPMpRrL._AC_UL640_FMwebp_QL65_.jpg";
-            img2.src = "https://m.media-amazon.com/images/I/61FydVhNtuL._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/41IJIRBOswL.jpg";
-            img4.src = "https://m.media-amazon.com/images/I/31zHLVgWvPL._AC_UL640_FMwebp_QL65_.jpg";
-            img5.src = "https://m.media-amazon.com/images/I/61YmetPCQlL._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "Boldfit Women's Puffer Standard";
-            text1.textContent = "Alan Jones Clothing Women";
-            text2.textContent = "GRECIILOOKS Women's Woolen";
-            text3.textContent = "BAGHADBILLO Unisex-Adult";
-            text4.textContent = "BLACKSTEP Women's Fleece";
-            text5.textContent = "Alan Jones Clothing Women";
+            img.src = "https://m.media-amazon.com/images/I/61YmetPCQlL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/61BdYFnS+UL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/41CrZx7MUAL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/21v4RZOQZFL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Women's Solid Zipper Hooded Sweatshirt";
+            text1.textContent = "Boldfit Winter Cap With Neck";
+            text2.textContent = "Women winter track suit for women";
+            text3.textContent = "Women winter wear hooded";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
             div3.appendChild(img3);
-            div4.appendChild(img4);
-            div5.appendChild(img5);
             div.appendChild(text);
             div1.appendChild(text1);
             div2.appendChild(text2);
             div3.appendChild(text3);
-            div4.appendChild(text4);
-            div5.appendChild(text5);
             suggestions.appendChild(div);
             suggestions.appendChild(div1);
             suggestions.appendChild(div2);
             suggestions.appendChild(div3);
-            suggestions.appendChild(div4);
-            suggestions.appendChild(div5);
         }
         if (main == "Rain") {
-            img.src = "https://m.media-amazon.com/images/I/61zKLHk2q0L._AC_UL640_FMwebp_QL65_.jpg";
-            img1.src = "https://m.media-amazon.com/images/I/61X4E8m8dWL._AC_UL640_FMwebp_QL65_.jpg";
-            img2.src = "https://m.media-amazon.com/images/I/51y5HMqP7XL._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/41F-ZYSRUPL._AC_UL640_FMwebp_QL65_.jpg";
+            img.src = "https://m.media-amazon.com/images/I/61X4E8m8dWL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/61F3nl4+jFL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/61ln2+YaejL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/61n1P8dWsKL._AC_UL640_FMwebp_QL65_.jpg";
             img4.src = "https://m.media-amazon.com/images/I/71EmkJZjnTL._AC_UL640_FMwebp_QL65_.jpg";
             img5.src = "https://m.media-amazon.com/images/I/71qFYOLDGoL._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "THE CLOWNFISH Women's Raincoat";
-            text1.textContent = "HIGHLANDS Women's Raincoat";
-            text2.textContent = "Romano nx Women's Rain Skirt";
-            text3.textContent = "Romano Women's Rain Skirt And";
-            text4.textContent = "Robustt Unisex Raincoat With Hood";
-            text5.textContent = "HACER EVA Waterproof Unisex Rain";
+            text.textContent = "HIGHLANDS Women's Raincoat";
+            text1.textContent = "HACER Hooded Raincoat for Women";
+            text2.textContent = "Women's EVA Waterproof Raincoat";
+            text3.textContent = "EVA Waterproof Rain Coat For Women";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
             div3.appendChild(img3);
-            div4.appendChild(img4);
-            div5.appendChild(img5);
             div.appendChild(text);
             div1.appendChild(text1);
             div2.appendChild(text2);
             div3.appendChild(text3);
-            div4.appendChild(text4);
-            div5.appendChild(text5);
             suggestions.appendChild(div);
             suggestions.appendChild(div1);
             suggestions.appendChild(div2);
             suggestions.appendChild(div3);
-            suggestions.appendChild(div4);
-            suggestions.appendChild(div5);
         }
         if (main == "Clear"){
-            img.src = "https://m.media-amazon.com/images/I/71g2eQvvE3L._AC_UL640_FMwebp_QL65_.jpg";
-            img1.src = "https://m.media-amazon.com/images/I/81KITQgC2RL._AC_UL640_FMwebp_QL65_.jpg";
-            img2.src = "https://m.media-amazon.com/images/I/61gZ7gbtK4L._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/71oaeGVaBIL._AC_UL640_FMwebp_QL65_.jpg";
-            img4.src = "https://m.media-amazon.com/images/I/71ojDi0wKlL._AC_UL640_FMwebp_QL65_.jpg";
-            img5.src = "https://m.media-amazon.com/images/I/61Cu27WVA9L._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "NOQUO Women's Handcrafted Sweater Crochet Knit Cover-Up Dress";
-            text1.textContent = "NOQUO Women's Sleeveless V-Neck";
-            text2.textContent = "Aahwan Solid Summer Beach";
-            text3.textContent = "Aahwan Striped Casual Sleeveless";
-            text4.textContent = "GoSriKi Women's Rayon Viscose";
-            text5.textContent = "ANNI DESIGNER Women's Cotton";
+            img.src = "https://m.media-amazon.com/images/I/61Wyb3bAE2L._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/61dZDESanfL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/51LkMbYWy7L._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/5190+vhPiWL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Women Sports Zipper Running Jacket";
+            text1.textContent = "Regular Fit Women";
+            text2.textContent = "Women's Boxer Shorts";
+            text3.textContent = "Women's Cotton Athletic Gym";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
             div3.appendChild(img3);
-            div4.appendChild(img4);
-            div5.appendChild(img5);
             div.appendChild(text);
             div1.appendChild(text1);
             div2.appendChild(text2);
             div3.appendChild(text3);
-            div4.appendChild(text4);
-            div5.appendChild(text5);
             suggestions.appendChild(div);
             suggestions.appendChild(div1);
             suggestions.appendChild(div2);
             suggestions.appendChild(div3);
-            suggestions.appendChild(div4);
-            suggestions.appendChild(div5);
             
         }
 

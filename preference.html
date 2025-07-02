@@ -173,8 +173,21 @@
     </footer>
     <script>
         // Load saved preferences
+        let outfitsGo = false;
+        let city = new URLSearchParams(window.location.search).get("city");
+        let temp = new URLSearchParams(window.location.search).get("temp");
+        let description = new URLSearchParams(window.location.search).get("description");
+        let main = new URLSearchParams(window.location.search).get("main");
         document.addEventListener('DOMContentLoaded', () => {
             const prefs = JSON.parse(localStorage.getItem('weatherwear_prefs') || '{}');
+            
+            
+            if (city !== null && temp !== null && description !== null && main !== null) {
+                outfitsGo = true;
+            }
+            console.log(outfitsGo);
+            
+
             if (prefs.language) document.getElementById('languageSelect').value = prefs.language;
             if (prefs.darkMode) {
                 document.getElementById('darkModeToggle').checked = true;
@@ -205,6 +218,9 @@
             msg.textContent = "Preferences saved!";
             msg.style.display = "block";
             setTimeout(() => { msg.style.display = "none"; }, 2000);
+            if (outfitsGo) {
+                window.location.href = 'outfit.html?city=' + city + '&temp=' + temp + '&description=' + description + '&main=' + main;
+            }
         });
 
         // Language change alert
