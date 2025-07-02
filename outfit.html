@@ -343,10 +343,10 @@ header div:nth-of-type(1){
             img1.src = "https://m.media-amazon.com/images/I/61YQNRjM-jL._AC_UL640_FMwebp_QL65_.jpg";
             img2.src = "https://m.media-amazon.com/images/I/71pm7JgvFyL._AC_UL640_FMwebp_QL65_.jpg";
             img3.src = "https://m.media-amazon.com/images/I/51kJrAggy4L._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "Men's Woolen Thick";
+            text.textContent = "Men's Woolen Thick Socks";
             text1.textContent = "Sweater for Boys ";
             text2.textContent = "Printed Sweatshirt for Boys";
-            text3.textContent = "Boys' Sweatshirt with Stylish Design";
+            text3.textContent = "Boys Sweatshirt with Stylish Design";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
@@ -558,10 +558,10 @@ header div:nth-of-type(1){
             img1.src = "https://m.media-amazon.com/images/I/71A7tYnlJuL._AC_UL640_FMwebp_QL65_.jpg";
             img2.src = "https://m.media-amazon.com/images/I/61apHM5eK-L._AC_UL640_FMwebp_QL65_.jpg";
             img3.src = "https://m.media-amazon.com/images/I/91Pk7vHZZSL._AC_UL640_FMwebp_QL65_.jpg";
-            text.textContent = "Men's Woolen Thick Towel";
+            text.textContent = "Men's Woolen Thick Socks";
             text1.textContent = "Winter Cap for Men–Woolen";
             text2.textContent = "Full Sleeve Winter Wear";
-            text3.textContent = "Men's Woolen Checkered";
+            text3.textContent = "Men's Woolen Checkered Shirt";
             div.appendChild(img);
             div1.appendChild(img1);
             div2.appendChild(img2);
@@ -674,7 +674,7 @@ header div:nth-of-type(1){
             img2.src = "https://m.media-amazon.com/images/I/41Ld287zwQL._AC_UL640_FMwebp_QL65_.jpg";
             img3.src = "https://m.media-amazon.com/images/I/71e90VnZoLL._AC_UL640_FMwebp_QL65_.jpg";
             text.textContent = "Beatwide Men's Track And Field";
-            text1.textContent = "Mens Printed Round Neck Half";
+            text1.textContent = "Mens Printed Round Neck Half T-Shirt";
             text2.textContent = "Printed Round Neck Cotton T-Shirt";
             text3.textContent = "Vest for Men";
             div.appendChild(img);
@@ -713,8 +713,8 @@ subtitle.innerHTML = `weather is  ${main}`;
 heading.innerHTML = "Suggestions For womans";
 suggestions.innerHTML = "";
 
+if (pref.ageRange == 'teen') {
     if (pref.style == 'casual') {
-    if (pref.ageRange == 'teen') {
             if (main == "Clouds") {
             img.src = "https://m.media-amazon.com/images/I/71sNV5MYw2L._AC_UL640_FMwebp_QL65_.jpg";
             img1.src = "https://m.media-amazon.com/images/I/41fy+pMtZ+L._AC_UL640_FMwebp_QL65_.jpg";
@@ -778,10 +778,12 @@ suggestions.innerHTML = "";
                 else if (pref.style == 'formal') {
                     
             if (main == "Clouds") {
-          alert("Currently not available");
+                alert("Curently not available. Please Change Your Prefrences");
+                window.location.href = 'preference.html?city=' + city + '&temp=' + temp + '&description=' + description + '&main=' + main;
         }
         if (main == "Rain") {
-          alert("Currently not available");
+            alert("Curently not available. Please Change Your Prefrences");
+            window.location.href = 'preference.html?city=' + city + '&temp=' + temp + '&description=' + description + '&main=' + main;
         }
         if (main == "Clear"){
             img.src = "https://m.media-amazon.com/images/I/41zC0f-HgHL._AC_UL640_FMwebp_QL65_.jpg";
@@ -1057,8 +1059,6 @@ suggestions.innerHTML = "";
             img1.src = "https://m.media-amazon.com/images/I/61F3nl4+jFL._AC_UL640_FMwebp_QL65_.jpg";
             img2.src = "https://m.media-amazon.com/images/I/61ln2+YaejL._AC_UL640_FMwebp_QL65_.jpg";
             img3.src = "https://m.media-amazon.com/images/I/61n1P8dWsKL._AC_UL640_FMwebp_QL65_.jpg";
-            img4.src = "https://m.media-amazon.com/images/I/71EmkJZjnTL._AC_UL640_FMwebp_QL65_.jpg";
-            img5.src = "https://m.media-amazon.com/images/I/71qFYOLDGoL._AC_UL640_FMwebp_QL65_.jpg";
             text.textContent = "HIGHLANDS Women's Raincoat";
             text1.textContent = "HACER Hooded Raincoat for Women";
             text2.textContent = "Women's EVA Waterproof Raincoat";
