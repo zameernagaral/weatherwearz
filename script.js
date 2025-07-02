@@ -16,8 +16,7 @@ function detectLocation() {
                     const weatherDescription = data.weather[0].description;
                     const weatherMain = data.weather[0].main;
                     const temperature = Math.round(data.main.temp - 273.15);
-                    console.log(cityName, weatherDescription, weatherMain, temperature);
-                    
+                    window.location.href = `outfit.html?city=${cityName}&temp=${temperature}&description=${weatherDescription}&main=${weatherMain}`;
                 })
                 .catch(() => {
                     alert("Could not fetch weather for your location.");
