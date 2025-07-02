@@ -162,10 +162,7 @@ header div:nth-of-type(1){
  <main>
     <h1 class="heading">Choose gender</h1>
     <p class="subtitle"></p>
-    <section class="gender">
-        <button class="male">Male</button>
-        <button class="female">Female</button>
-    </section>
+   
     <section class="suggestions">
         
     </section>
@@ -175,6 +172,7 @@ header div:nth-of-type(1){
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+        
         let city = new URLSearchParams(window.location.search).get("city");
         let temp = new URLSearchParams(window.location.search).get("temp");
         let description = new URLSearchParams(window.location.search).get("description");
@@ -188,11 +186,15 @@ header div:nth-of-type(1){
         const degreeSymbol = '\u00B0';
 
         let pref = JSON.parse(localStorage.getItem('weatherwear_prefs') || '{}');
-        
+        if (!pref.gender) {
+         alert("Please complete your user prefrences. Dont forget to save it!");   
+         window.location.href = 'preference.html?city=' + city + '&temp=' + temp + '&description=' + description + '&main=' + main;
+        }
         let darkMode = pref.darkMode;
         if (darkMode) {
             document.getElementById('mainBody').classList.add('dark-mode');
         }
+
 
         
 
@@ -234,8 +236,10 @@ header div:nth-of-type(1){
         text3.classList.add('textOutfit');
         text4.classList.add('textOutfit');
         text5.classList.add('textOutfit');
-
-        male.addEventListener('click', () => {
+        if (pref.gender == 'male') {
+            
+        
+        
             if (city) {
                 subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
                 
@@ -344,12 +348,14 @@ header div:nth-of-type(1){
             suggestions.appendChild(div5);
         }
 
-    })  ;
+    
+
+        }
+
+if (pref.gender == 'female') {
+    
 
 
-
-
-        female.addEventListener('click', () => {
             if (city) {
                 subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
                 
@@ -456,7 +462,7 @@ header div:nth-of-type(1){
             
         }
 
-    })  ;
+}
 
         
     
