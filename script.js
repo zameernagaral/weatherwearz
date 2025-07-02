@@ -18,11 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const logo = document.querySelector('.logo');
     const API_key = "cd210460aeb56354fd13bf8911d788b6";
     const cityInput  = document.querySelector('.inputform');
-    
+    let sunny = document.querySelector('.sunny');
+    let rainy = document.querySelector('.rainy');
+    let cold = document.querySelector('.cold');
     
     
     let searchButton = document.querySelector('.search');
 
+
+    sunny.addEventListener('click', () => {
+        window.location.href = `outfit.html?main=${"Clear"}`;
+    })
+    rainy.addEventListener('click', () => {
+        window.location.href = `outfit.html?main=${"Rain"}`;
+    })
+    cold.addEventListener('click', () => {
+        window.location.href = `outfit.html?main=${"Clouds"}`;
+    })
     searchButton.addEventListener('click', () => {
         let city = cityInput.value.trim();
 

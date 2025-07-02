@@ -185,6 +185,7 @@ header div:nth-of-type(1){
         const degreeSymbol = '\u00B0';
 
 
+
         
 
 
@@ -227,14 +228,19 @@ header div:nth-of-type(1){
         text5.classList.add('textOutfit');
 
         male.addEventListener('click', () => {
-            subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
+            if (city) {
+                subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
+                
+            }else{
+                subtitle.innerHTML = `weather is  ${main}`;
+            }
             heading.innerHTML = "Suggestions For Men";
+            suggestions.innerHTML = "";
             
           
 
         if (main == "Clouds") {
             img.src = "https://m.media-amazon.com/images/I/61j2FBMg2LL._AC_UL640_FMwebp_QL65_.jpg";
-            
             img1.src = "https://m.media-amazon.com/images/I/7138S0ZHxkL._AC_UL640_FMwebp_QL65_.jpg";
             img2.src = "https://m.media-amazon.com/images/I/61ICGgm10PL._AC_UL640_FMwebp_QL65_.jpg";
             img3.src = "https://m.media-amazon.com/images/I/61Q0xlCF8zL._AC_UL640_FMwebp_QL65_.jpg";
@@ -264,6 +270,182 @@ header div:nth-of-type(1){
             suggestions.appendChild(div3);
             suggestions.appendChild(div4);
             suggestions.appendChild(div5);
+        }
+        if (main == "Rain") {
+            img.src = "https://m.media-amazon.com/images/I/71Z9Q91URSL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/51M7oNhzeNL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/51bhEzHlpBL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/610E-6wbMNL._AC_UL640_FMwebp_QL65_.jpg";
+            img4.src = "https://m.media-amazon.com/images/I/51LIV8vBl9L._AC_UL640_FMwebp_QL65_.jpg";
+            img5.src = "https://m.media-amazon.com/images/I/71EmkJZjnTL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Robustt Unisex Raincoat With Hood";
+            text1.textContent = "ZEEL Waterfighter Rain Coat";
+            text2.textContent = "ZEEL Rain Coat for Men ";
+            text3.textContent = "Amazon Brand - Solimo Men";
+            text4.textContent = "RainCoat for Men Waterproof";
+            text5.textContent = "Robustt Unisex Raincoat With Hood";
+            div.appendChild(img);
+            div1.appendChild(img1);
+            div2.appendChild(img2);
+            div3.appendChild(img3);
+            div4.appendChild(img4);
+            div5.appendChild(img5);
+            div.appendChild(text);
+            div1.appendChild(text1);
+            div2.appendChild(text2);
+            div3.appendChild(text3);
+            div4.appendChild(text4);
+            div5.appendChild(text5);
+            suggestions.appendChild(div);
+            suggestions.appendChild(div1);
+            suggestions.appendChild(div2);
+            suggestions.appendChild(div3);
+            suggestions.appendChild(div4);
+            suggestions.appendChild(div5);
+        }
+        if (main == "Clear") {
+            img.src = "https://m.media-amazon.com/images/I/71cATrxb6qL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/41VQFYX3tCL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/41xlIZwU5KL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/71XYhBCOqvL._AC_UL640_FMwebp_QL65_.jpg";
+            img4.src = "https://m.media-amazon.com/images/I/61u5oAftaeL._AC_UL640_FMwebp_QL65_.jpg";
+            img5.src = "https://m.media-amazon.com/images/I/415mvBoZHZL.jpg";
+            text.textContent = "Symbol Premium Men's Wrinkle";
+            text1.textContent = "YHA Men Solid Summer Co-ord";
+            text2.textContent = "NOBERO Men's Solid Regular Fit";
+            text3.textContent = "GRECIILOOKS Shirt for Men ";
+            text4.textContent = "Lymio Men Cargo Pants Cotton";
+            text5.textContent = "SMOWKLY Men's Premium";
+            div.appendChild(img);
+            div1.appendChild(img1);
+            div2.appendChild(img2);
+            div3.appendChild(img3);
+            div4.appendChild(img4);
+            div5.appendChild(img5);
+            div.appendChild(text);
+            div1.appendChild(text1);
+            div2.appendChild(text2);
+            div3.appendChild(text3);
+            div4.appendChild(text4);
+            div5.appendChild(text5);
+            suggestions.appendChild(div);
+            suggestions.appendChild(div1);
+            suggestions.appendChild(div2);
+            suggestions.appendChild(div3);
+            suggestions.appendChild(div4);
+            suggestions.appendChild(div5);
+        }
+
+    })  ;
+
+
+
+
+        female.addEventListener('click', () => {
+            if (city) {
+                subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
+                
+            }else{
+                subtitle.innerHTML = `weather is  ${main}`;
+            }
+            heading.innerHTML = "Suggestions For womans";
+            suggestions.innerHTML = "";
+            if (main == "Clouds") {
+            img.src = "https://m.media-amazon.com/images/I/61oubNC8reL._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/71TVzPMpRrL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/61FydVhNtuL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/61FydVhNtuL._AC_UL640_FMwebp_QL65_.jpg";
+            img4.src = "https://m.media-amazon.com/images/I/31zHLVgWvPL._AC_UL640_FMwebp_QL65_.jpg";
+            img5.src = "https://m.media-amazon.com/images/I/61YmetPCQlL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Boldfit Women's Puffer Standard";
+            text1.textContent = "Alan Jones Clothing Women";
+            text2.textContent = "GRECIILOOKS Women's Woolen";
+            text3.textContent = "BAGHADBILLO Unisex-Adult";
+            text4.textContent = "BLACKSTEP Women's Fleece";
+            text5.textContent = "Alan Jones Clothing Women";
+            div.appendChild(img);
+            div1.appendChild(img1);
+            div2.appendChild(img2);
+            div3.appendChild(img3);
+            div4.appendChild(img4);
+            div5.appendChild(img5);
+            div.appendChild(text);
+            div1.appendChild(text1);
+            div2.appendChild(text2);
+            div3.appendChild(text3);
+            div4.appendChild(text4);
+            div5.appendChild(text5);
+            suggestions.appendChild(div);
+            suggestions.appendChild(div1);
+            suggestions.appendChild(div2);
+            suggestions.appendChild(div3);
+            suggestions.appendChild(div4);
+            suggestions.appendChild(div5);
+        }
+        if (main == "Rain") {
+            img.src = "https://m.media-amazon.com/images/I/61zKLHk2q0L._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/61X4E8m8dWL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/51y5HMqP7XL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/41F-ZYSRUPL._AC_UL640_FMwebp_QL65_.jpg";
+            img4.src = "https://m.media-amazon.com/images/I/71EmkJZjnTL._AC_UL640_FMwebp_QL65_.jpg";
+            img5.src = "https://m.media-amazon.com/images/I/71qFYOLDGoL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "THE CLOWNFISH Women's Raincoat";
+            text1.textContent = "HIGHLANDS Women's Raincoat";
+            text2.textContent = "Romano nx Women's Rain Skirt";
+            text3.textContent = "Romano Women's Rain Skirt And";
+            text4.textContent = "Robustt Unisex Raincoat With Hood";
+            text5.textContent = "HACER EVA Waterproof Unisex Rain";
+            div.appendChild(img);
+            div1.appendChild(img1);
+            div2.appendChild(img2);
+            div3.appendChild(img3);
+            div4.appendChild(img4);
+            div5.appendChild(img5);
+            div.appendChild(text);
+            div1.appendChild(text1);
+            div2.appendChild(text2);
+            div3.appendChild(text3);
+            div4.appendChild(text4);
+            div5.appendChild(text5);
+            suggestions.appendChild(div);
+            suggestions.appendChild(div1);
+            suggestions.appendChild(div2);
+            suggestions.appendChild(div3);
+            suggestions.appendChild(div4);
+            suggestions.appendChild(div5);
+        }
+        if (main == "Clear"){
+            img.src = "https://m.media-amazon.com/images/I/71g2eQvvE3L._AC_UL640_FMwebp_QL65_.jpg";
+            img1.src = "https://m.media-amazon.com/images/I/81KITQgC2RL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/61gZ7gbtK4L._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/71oaeGVaBIL._AC_UL640_FMwebp_QL65_.jpg";
+            img4.src = "https://m.media-amazon.com/images/I/71ojDi0wKlL._AC_UL640_FMwebp_QL65_.jpg";
+            img5.src = "https://m.media-amazon.com/images/I/61Cu27WVA9L._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "NOQUO Women's Handcrafted Sweater Crochet Knit Cover-Up Dress";
+            text1.textContent = "NOQUO Women's Sleeveless V-Neck";
+            text2.textContent = "Aahwan Solid Summer Beach";
+            text3.textContent = "Aahwan Striped Casual Sleeveless";
+            text4.textContent = "GoSriKi Women's Rayon Viscose";
+            text5.textContent = "ANNI DESIGNER Women's Cotton";
+            div.appendChild(img);
+            div1.appendChild(img1);
+            div2.appendChild(img2);
+            div3.appendChild(img3);
+            div4.appendChild(img4);
+            div5.appendChild(img5);
+            div.appendChild(text);
+            div1.appendChild(text1);
+            div2.appendChild(text2);
+            div3.appendChild(text3);
+            div4.appendChild(text4);
+            div5.appendChild(text5);
+            suggestions.appendChild(div);
+            suggestions.appendChild(div1);
+            suggestions.appendChild(div2);
+            suggestions.appendChild(div3);
+            suggestions.appendChild(div4);
+            suggestions.appendChild(div5);
+            
         }
 
     })  ;
