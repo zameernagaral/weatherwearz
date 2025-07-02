@@ -16,24 +16,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const logo = document.querySelector('.logo');
-    function setLanguage() {
-        const lang = document.getElementById('languageSelect').value;
-        alert(`Language switched to: ${lang === 'en' ? 'English' : lang === 'kn' ? 'Kannada' : 'Hindi'}`);
-        // You can implement actual language switching using i18n libraries or JSON translations here
-    }
-
-
-    const darkToggle = document.getElementById('darkModeToggle');
-    const body = document.getElementById('body');
-    darkToggle.addEventListener('change', () => {
-        body.classList.toggle('bg-white');
-        body.classList.toggle('bg-gray-900');
-        body.classList.toggle('text-white');
-    });
-
-
-
+    const API_key = "cd210460aeb56354fd13bf8911d788b6";
+    const cityInput  = document.querySelector('.inputform');
     
+    
+    
+    let searchButton = document.querySelector('.search');
+
+    searchButton.addEventListener('click', () => {
+        let city = cityInput.value.trim();
+
+        
+    
+    if (city) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_key}`;
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    
+                    throw new Error("City not found. Please enter a valid city name.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                const cityName = data.name;
+                
+                const weatherDescription = data.weather[0].description;
+                const weatherMain = data.weather[0].main;
+                const temperature = Math.round(data.main.temp - 273.15); // Convert from Kelvin to Celsius
+                console.log(weatherMain);
+               window.location.href = `outfit.html?city=${cityName}&temp=${temperature}&description=${weatherDescription}&main=${weatherMain}`;     
+                
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
+    } 
+
+    })
+
     menuToggle.classList.add('hidden');
     
 
@@ -51,4 +74,5 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.addEventListener('click', () => {
         window.location.href = 'index.html';
     });
+
 });

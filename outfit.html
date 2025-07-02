@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outfits</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #78d3fd, #f2f2f2);
+    transition: all 0.3s ease-in-out;
+    overscroll-behavior: none;
+    height: 100%;
+}
+header{
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    
+    
+}
+header div:nth-of-type(1){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#menutoggle{
+    color: grey;
+    font-weight: 700;
+}
+.hidden{
+    display: none;
+}
+.logo{
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: rgb(24, 180, 252);
+    
+}
+#navLinks{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    font-weight: 600;
+    color: rgb(24, 180, 252);
+}
+#navLinks a{
+    text-decoration: none;
+    color: rgb(24, 180, 252);
+    transition: all 0.3s ease-in-out;
+}
+
+#navLinks a:hover{
+    scale: 1.1;
+    
+
+}
+.heading{
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem;
+    color: white;
+}
+
+.suggestions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+.divOutfit{
+    background-color: white;
+    max-width: 250px;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-wrap: wrap;
+    
+}
+.divOutfit:hover{
+    scale: 1.1;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imgOutfit{
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+.textOutfit{
+    font-weight: 600;
+    color: rgb(24, 180, 252);
+    
+}
+.hidden{
+    display: none;
+}
+.gender button{
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+    color: rgb(24, 180, 252);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    
+}
+.gender button:hover{
+    scale: 1.1;
+    
+}
+.gender{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.subtitle{
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    margin: 1rem;
+}
+
+</style>
+<body>
+    <header>
+        <div>
+          <div class="logo">WeatherWear</div>
+          <div>
+            <button id="menuToggle">
+              <svg height="24" width="24"  fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          <nav id="navLinks">
+            <a href="index.html" class="home" >Home</a>
+            <a href="#tools" class="tools">Tools</a>
+            <a href="outfit.html" class="outfit" >Outfits</a>
+            <a href="preference.html" class="preferences" >Preferences</a>
+          </nav>
+        </div>
+      
+      </header>
+ <main>
+    <h1 class="heading">Choose gender</h1>
+    <p class="subtitle"></p>
+    <section class="gender">
+        <button class="male">Male</button>
+        <button class="female">Female</button>
+    </section>
+    <section class="suggestions">
+        
+    </section>
+ </main>
+ <footer>
+    <p>&copy; 2025 WeatherWear. All rights reserved.</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let city = new URLSearchParams(window.location.search).get("city");
+        let temp = new URLSearchParams(window.location.search).get("temp");
+        let description = new URLSearchParams(window.location.search).get("description");
+        let main = new URLSearchParams(window.location.search).get("main");
+        let suggestions = document.querySelector('.suggestions');
+        let male = document.querySelector('.male');
+        let female = document.querySelector('.female');
+        let gender = document.querySelector('.gender');
+        let heading = document.querySelector('.heading');
+        let subtitle = document.querySelector('.subtitle');
+        const degreeSymbol = '\u00B0';
+
+
+        
+
+
+
+        let div = document.createElement('div');
+        div.classList.add('divOutfit');
+        let div1 = document.createElement('div');
+        div1.classList.add('divOutfit');
+        let div2 = document.createElement('div');
+        div2.classList.add('divOutfit');
+        let div3 = document.createElement('div');
+        div3.classList.add('divOutfit');
+        let div4 = document.createElement('div');
+        div4.classList.add('divOutfit');
+        let div5 = document.createElement('div');
+        div5.classList.add('divOutfit');
+        let img = document.createElement('img');
+        let img1 = document.createElement('img');
+        let img2 = document.createElement('img');
+        let img3 = document.createElement('img');
+        let img4 = document.createElement('img');
+        let img5 = document.createElement('img');
+        img.classList.add('imgOutfit');
+        img1.classList.add('imgOutfit');
+        img2.classList.add('imgOutfit');
+        img3.classList.add('imgOutfit');
+        img4.classList.add('imgOutfit');
+        img5.classList.add('imgOutfit');
+        let text = document.createElement('p');
+        let text1 = document.createElement('p');
+        let text2 = document.createElement('p');
+        let text3 = document.createElement('p');
+        let text4 = document.createElement('p');
+        let text5 = document.createElement('p');
+        text.classList.add('textOutfit');
+        text1.classList.add('textOutfit');
+        text2.classList.add('textOutfit');
+        text3.classList.add('textOutfit');
+        text4.classList.add('textOutfit');
+        text5.classList.add('textOutfit');
+
+        male.addEventListener('click', () => {
+            subtitle.innerHTML = `weather in ${city} is ${temp}${degreeSymbol}C with ${description}`;
+            heading.innerHTML = "Suggestions For Men";
+            
+          
+
+        if (main == "Clouds") {
+            img.src = "https://m.media-amazon.com/images/I/61j2FBMg2LL._AC_UL640_FMwebp_QL65_.jpg";
+            
+            img1.src = "https://m.media-amazon.com/images/I/7138S0ZHxkL._AC_UL640_FMwebp_QL65_.jpg";
+            img2.src = "https://m.media-amazon.com/images/I/61ICGgm10PL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/61Q0xlCF8zL._AC_UL640_FMwebp_QL65_.jpg";
+            img4.src = "https://m.media-amazon.com/images/I/71G-VJLjPaL._AC_UL640_FMwebp_QL65_.jpg";
+            img5.src = "https://m.media-amazon.com/images/I/71A7tYnlJuL._AC_UL640_FMwebp_QL65_.jpg";
+            text.textContent = "Jacket For Men Winter Wear";
+            text1.textContent = "Men's Cotton Hooded";
+            text2.textContent = "Hoodies for Men";
+            text3.textContent = "Boldfit Men's Polyester Padded";
+            text4.textContent = "Allen Solly Men's Cotton Blend";
+            text5.textContent = "Boldfit Winter Cap for Men";
+            div.appendChild(img);
+            div1.appendChild(img1);
+            div2.appendChild(img2);
+            div3.appendChild(img3);
+            div4.appendChild(img4);
+            div5.appendChild(img5);
+            div.appendChild(text);
+            div1.appendChild(text1);
+            div2.appendChild(text2);
+            div3.appendChild(text3);
+            div4.appendChild(text4);
+            div5.appendChild(text5);
+            suggestions.appendChild(div);
+            suggestions.appendChild(div1);
+            suggestions.appendChild(div2);
+            suggestions.appendChild(div3);
+            suggestions.appendChild(div4);
+            suggestions.appendChild(div5);
+        }
+
+    })  ;
+
+        
+    
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const logo = document.querySelector('.logo');
+    menuToggle.classList.add('hidden');
+    
+
+    // Your mobile-only JS code here
+    
+    // Run this code only on mobile devices (screen width <= 768px)
+    if (window.innerWidth <= 768) {
+        // Your mobile-only JS code here
+        menuToggle.classList.remove('hidden');
+        navLinks.classList.add('hidden');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+        });
+    }
+    logo.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+
+
+
+
+
+})
+  </script>
+</body>
+</html>

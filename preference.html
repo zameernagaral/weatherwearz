@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Preference</title>
+</head>
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #78d3fd;
+        transition: all 0.3s ease-in-out;
+        overscroll-behavior: none;
+        height: 100%;
+    }
+    h2{
+        text-align: center;
+    }
+    section{
+        background-color: white;
+        max-width: 500px;
+        margin-left: 350px;
+        padding: 10px;
+        border-radius: 12px;
+        margin-top: 100px;
+        
+    }
+    section div:nth-of-type(1){
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .back{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        border: none;
+        background-color: white;
+        color: rgb(24, 180, 252);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    label{
+        font-weight: 600;
+        
+    }
+    select{
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        
+        background-color: white;
+        color: rgb(24, 180, 252);
+        font-weight: 900;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    option{
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        
+        background-color: white;
+        color: rgb(24, 180, 252);
+        font-weight: 900;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    input[type="checkbox"]{
+        
+        
+        color: rgb(24, 180, 252);
+        
+        cursor: pointer;
+    }
+    .save{
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        border: none;
+        background-color: rgb(24, 180, 252);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-left: 200px;
+    }
+    footer{
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+<body>
+    <button class="back">Back</button>
+  <!-- User Preferences Section -->
+  <section >
+    <h2 >User Preferences</h2>
+    <div>
+      <div>
+        <label >Preferred Fashion Style</label>
+        <select >
+          <option>Casual</option>
+          <option>Formal</option>
+          <option>Sporty</option>
+        </select>
+      </div>
+      
+      <!-- Local Language Toggle -->
+      <div>
+          <h3>🌐 Language Preference</h3>
+          <label for="languageSelect">Choose your language:</label>
+          <select id="languageSelect" onchange="setLanguage()">
+              <option value="en">English</option>
+              <option value="kn">Kannada</option>
+              <option value="hi">Hindi</option>
+            </select>
+        </div>
+        <div >
+          <label >Dark Mode</label>
+          <input type="checkbox" id="darkModeToggle" >
+        </div>
+      <div><button class="save">Save</button></div>
+    </div>
+
+
+  </section>
+
+  <footer>
+    <p>&copy; 2025 WeatherWear. All rights reserved.</p>
+  </footer>
+  <script>
+    function setLanguage() {
+        const lang = document.getElementById('languageSelect').value;
+        alert(`Language switched to: ${lang === 'en' ? 'English' : lang === 'kn' ? 'Kannada' : 'Hindi'}`);
+        // You can implement actual language switching using i18n libraries or JSON translations here
+    }
+  </script>
+</body>
+</html>

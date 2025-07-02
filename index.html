@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WeatherWear</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/favicon/site.webmanifest">
 </head>
 <body>
   <header>
@@ -21,32 +23,29 @@
       </div>
       <nav id="navLinks">
         <a href="index.html" class="home" >Home</a>
-        <a href="tools.html" class="tools">Tools</a>
+        <a href="#tools" class="tools">Tools</a>
         <a href="outfit.html" class="outfit" >Outfits</a>
         <a href="preference.html" class="preferences" >Preferences</a>
       </nav>
     </div>
   
   </header>
-  <video class="videoBackground" autoplay muted loop>
-    <source src="assets/videos/1893623-uhd_3840_2160_25fps.mp4" type="video/mp4">
-    your browser does not support the video tag
-  </video>
-
+  
   <!-- Hero Section -->
   <section class="hero" >
     
     <div class="heroContent">
       <h1 class="heading" >Dress Smart, Not Just Stylish - WeatherWear Has You Covered!</h1>
       <div>
-        <input type="text" placeholder="Enter your city..." >
-        <button >Search</button>
+        <input type="text" placeholder="Enter your city..." class="inputform" >
+        <button class="search" >Search</button>
       </div>
     </div>
 
 
   </section>
   <br>
+  
 
   <!-- Weather Summary Card -->
   <section class="weatherSummary" >
@@ -86,46 +85,9 @@
 
   
 
-  <!-- User Preferences Section -->
-  <section >
-    <h2 >User Preferences</h2>
-    <form >
-      <div>
-        <label>Name</label>
-        <input type="text" placeholder="Your name">
-      </div>
-      <div>
-        <label >Gender</label>
-        <select >
-          <option>Prefer not to say</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div>
-        <label >Age</label>
-        <input type="number" >
-      </div>
-      <div>
-        <label >Preferred Fashion Style</label>
-        <select >
-          <option>Casual</option>
-          <option>Formal</option>
-          <option>Sporty</option>
-        </select>
-      </div>
-      <div >
-        <label >Dark Mode</label>
-        <input type="checkbox" id="darkModeToggle" >
-      </div>
-    </form>
-  </section>
-
-
 
   <!-- Additional Features Section -->
-<section class="additionalFeatures">
+<section class="additionalFeatures" id="tools">
     <h2  style="text-align: center;" >Smart Wardrobe & Travel Tools</h2>
     <div class="features">
   
@@ -150,46 +112,6 @@
         <p>"Layering light jackets with bold accessories keeps you stylish and warm on breezy days."</p>
       </div>
 
-      <!-- Shopping Integration -->
-      <div>
-        <h3>🛒 Shop Similar Looks</h3>
-        <p>Find suggested items on Amazon or Myntra that match today’s recommended outfit.</p>
-        <a href="https://www.amazon.in" target="_blank">Browse on Amazon</a><br>
-        <a href="https://www.myntra.com" target="_blank">Browse on Myntra</a>
-      </div>
-
-      <!-- Packing for a Trip -->
-      <div>
-        <h3>📦 Pack for Your Trip</h3>
-        <p>Get a personalized packing checklist based on your travel destination and dates.</p>
-        <form>
-          <input type="text" placeholder="Destination City">
-          <input type="date">
-          <button type="submit">Get Packing List</button>
-        </form>
-      </div>
-
-      <!-- Outfit History -->
-      <div>
-        <h3>🕒 Outfit History</h3>
-        <p>Track your recent outfit suggestions and what you wore recently.</p>
-        <ul>
-          <li>Sunny - Cotton shirt, hat</li>
-          <li>Rainy - Jacket, umbrella</li>
-          <li>Cold - Hoodie, scarf</li>
-        </ul>
-      </div>
-
-      <!-- Local Language Toggle -->
-      <div>
-        <h3>🌐 Language Preference</h3>
-        <label for="languageSelect">Choose your language:</label>
-        <select id="languageSelect" onchange="setLanguage()">
-          <option value="en">English</option>
-          <option value="kn">Kannada</option>
-          <option value="hi">Hindi</option>
-        </select>
-      </div>
 
       <!-- Reminder Section -->
       <div>
@@ -203,6 +125,7 @@
     <p>&copy; 2025 WeatherWear. All rights reserved.</p>
   </footer>
   <script src="script.js"></script>
+  
   
 </body>
 </html>
