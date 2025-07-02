@@ -15,7 +15,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to bottom, #78d3fd, #f2f2f2);
+    background: #0d8fd8;
     transition: all 0.3s ease-in-out;
     overscroll-behavior: none;
     height: 100%;
@@ -42,7 +42,7 @@ header div:nth-of-type(1){
 .logo{
     font-weight: 800;
     font-size: 1.5rem;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
     
 }
 #navLinks{
@@ -50,11 +50,11 @@ header div:nth-of-type(1){
     gap: 1rem;
     list-style: none;
     font-weight: 600;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
 }
 #navLinks a{
     text-decoration: none;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
     transition: all 0.3s ease-in-out;
 }
 
@@ -102,7 +102,7 @@ header div:nth-of-type(1){
 }
 .textOutfit{
     font-weight: 600;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
     
 }
 .hidden{
@@ -113,7 +113,7 @@ header div:nth-of-type(1){
     border-radius: 12px;
     border: none;
     background-color: white;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -134,9 +134,13 @@ header div:nth-of-type(1){
     color: white;
     margin: 1rem;
 }
+.dark-mode{
+    background: #222 !important;
+    color: #fff !important;
+}
 
 </style>
-<body>
+<body id="mainBody">
     <header>
         <div>
           <div class="logo">WeatherWear</div>
@@ -149,8 +153,7 @@ header div:nth-of-type(1){
           </div>
           <nav id="navLinks">
             <a href="index.html" class="home" >Home</a>
-            <a href="#tools" class="tools">Tools</a>
-            <a href="outfit.html" class="outfit" >Outfits</a>
+            
             <a href="preference.html" class="preferences" >Preferences</a>
           </nav>
         </div>
@@ -184,7 +187,12 @@ header div:nth-of-type(1){
         let subtitle = document.querySelector('.subtitle');
         const degreeSymbol = '\u00B0';
 
-
+        let pref = JSON.parse(localStorage.getItem('weatherwear_prefs') || '{}');
+        
+        let darkMode = pref.darkMode;
+        if (darkMode) {
+            document.getElementById('mainBody').classList.add('dark-mode');
+        }
 
         
 
@@ -354,7 +362,7 @@ header div:nth-of-type(1){
             img.src = "https://m.media-amazon.com/images/I/61oubNC8reL._AC_UL640_FMwebp_QL65_.jpg";
             img1.src = "https://m.media-amazon.com/images/I/71TVzPMpRrL._AC_UL640_FMwebp_QL65_.jpg";
             img2.src = "https://m.media-amazon.com/images/I/61FydVhNtuL._AC_UL640_FMwebp_QL65_.jpg";
-            img3.src = "https://m.media-amazon.com/images/I/61FydVhNtuL._AC_UL640_FMwebp_QL65_.jpg";
+            img3.src = "https://m.media-amazon.com/images/I/41IJIRBOswL.jpg";
             img4.src = "https://m.media-amazon.com/images/I/31zHLVgWvPL._AC_UL640_FMwebp_QL65_.jpg";
             img5.src = "https://m.media-amazon.com/images/I/61YmetPCQlL._AC_UL640_FMwebp_QL65_.jpg";
             text.textContent = "Boldfit Women's Puffer Standard";

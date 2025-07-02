@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 <link rel="manifest" href="assets/favicon/site.webmanifest">
 </head>
-<body>
+<body id="mainBody">
   <header>
     <div>
       <div class="logo">WeatherWear</div>
@@ -24,7 +24,6 @@
       <nav id="navLinks">
         <a href="index.html" class="home" >Home</a>
         <a href="#tools" class="tools">Tools</a>
-        <a href="outfit.html" class="outfit" >Outfits</a>
         <a href="preference.html" class="preferences" >Preferences</a>
       </nav>
     </div>
@@ -93,12 +92,23 @@
         <button onclick="detectLocation()">Use My Location</button>
       </div>
 
-      <!-- Fashion Tips of the Day -->
-      <div>
-        <h3>👗 Fashion Tip of the Day</h3>
-        <p>"Layering light jackets with bold accessories keeps you stylish and warm on breezy days."</p>
-      </div>
-
+ <!-- Fashion Tips of the Day -->
+ <div>
+  <h3>👗 Fashion Tip of the Day</h3>
+  <p id="fashionTip">Layering light jackets with bold accessories keeps you stylish and warm on breezy days.</p>
+  <button id="newTipBtn">New Tip</button>
+</div>
+<!-- Packing for a Trip -->
+<div>
+  <h3>📦 Pack for Your Trip</h3>
+  <p>Get a personalized packing checklist based on your travel destination and dates.</p>
+  <form id="packingForm">
+    <input type="text" placeholder="Destination City" id="tripCity">
+    
+    <button type="submit">Get Packing List</button>
+  </form>
+  <ul id="packingList" class="hidden"></ul>
+</div>
 
       <!-- Reminder Section -->
       <div>
@@ -116,3 +126,22 @@
   
 </body>
 </html>
+
+<!-- 
+
+ageRange
+: 
+"teen"
+darkMode
+: 
+true
+gender
+: 
+"male"
+language
+: 
+"kn"
+style
+: 
+"casual" 
+weatherwear_prefs-->

@@ -1,230 +1,512 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to bottom, #78d3fd, #f2f2f2);
+    background: linear-gradient(to bottom, #0d8fd8 0%, #f2f2f2 100%);
     transition: all 0.3s ease-in-out;
+    min-height: 100vh;
+    color: #222;
     overscroll-behavior: none;
-    height: 100%;
 }
-header{
+
+header {
     background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    
-    
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
-header div:nth-of-type(1){
+
+header div:nth-of-type(1) {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-#menutoggle{
+
+#menuToggle {
     color: grey;
     font-weight: 700;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
-.hidden{
-    display: none;
+
+.hidden {
+    display: none !important;
 }
-.logo{
+
+.logo {
     font-weight: 800;
-    font-size: 1.5rem;
-    color: rgb(24, 180, 252);
-    
+    font-size: 2rem;
+    color: #0d8fd8;
+    letter-spacing: 2px;
+    cursor: pointer;
 }
-#navLinks{
+
+#navLinks {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     list-style: none;
     font-weight: 600;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
 }
-#navLinks a{
+
+#navLinks a {
     text-decoration: none;
-    color: rgb(24, 180, 252);
-    transition: all 0.3s ease-in-out;
+    color: #0d8fd8;
+    transition: color 0.3s, transform 0.3s;
+    font-size: 1.1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
 }
 
-#navLinks a:hover{
-    scale: 1.1;
-    
-
+#navLinks a:hover,
+#navLinks a.active {
+    color: #fff;
+    background: #0d8fd8;
+    transform: scale(1.08);
 }
-.heading{
+
+.heading {
     font-weight: 800;
     font-size: 3rem;
     text-align: center;
-    margin: 3rem;
+    margin: 3rem 0 2rem 0;
     color: white;
+    letter-spacing: 1px;
 }
 
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
-.heroContent div{
+.heroContent {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 2rem 1rem;
+}
+
+.heroContent div {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-
-.hero input{
-    padding: 0.5rem;
+.hero input {
+    padding: 0.5rem 1rem;
     border-radius: 12px;
-    
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
+    font-size: 1rem;
 }
-.hero button{
+
+.hero button {
     padding: 0.5rem 1rem;
     border-radius: 12px;
     border: none;
     background-color: white;
-    color: rgb(24, 180, 252);
+    color: #0d8fd8;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1rem;
 }
+
 .hero button:hover{
-    scale: 1.1;
     
+    transform: scale(1.08);
 }
-.weatherSummary{
-    background-color: white;
-    max-width: 250px;
-    position:relative;
-    left: 500px;
-    top: 30px;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-.weatherSummary h3{
-    color: rgb(24, 180, 252);
-    font-weight: 600;
-}
-.weatherSummary p{
-    color: rgb(24, 180, 252);
-    font-weight: 600;
-}
-.weatherSummary:hover{
-    scale: 1.1;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
-}
-.outfitSuggestions{
-    margin-top: 100px;
+
+
+.outfitSuggestions {
+    margin: 80px auto 0 auto;
     background-color: white;
     max-width: 1000px;
-    margin-left: 100px;
-    border-radius: 12px;
-    padding: 50px;
-
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 8px rgba(24, 180, 252, 0.10);
 }
-.outfitSuggestions h2{
-    background-color: #78d3fd;
-    width: 50%;
-    
-    
-    
-    
-    padding: 50px;
-    margin-left: 230px;
+
+.outfitSuggestions h2 {
+    background-color: #0d8fd8;
+    width: 60%;
+    padding: 30px;
+    margin: 0 auto 30px auto;
     border-radius: 12px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    
     text-align: center;
-    
-    font-weight: 600;
+    font-weight: 700;
+    color: #fff;
+    font-size: 2rem;
 }
-.carousel{
+
+.carousel {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    height: 300px;
-    padding: 1rem;
+    align-items: stretch;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
     border-radius: 12px;
-    
-    
-    
 }
-.carousel div{
-    background-color: #78d3fd;
-    height: 150px;
-    padding: 10px;
+
+
+.carousel div {
+    background-color: #0d8fd8;
+    min-height: 180px;
+    padding: 18px 12px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    text-wrap: wrap;
-    max-width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 260px;
+    text-align: left;
+    color: #fff;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+
+.carousel div:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 24px rgba(24, 180, 252, 0.15);
+}
+
+
+.carousel div span {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+
+.carousel div h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+
+.carousel div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.carousel div p,
+.carousel div li {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.additionalFeatures {
+    margin: 80px auto 0 auto;
+    max-width: 1200px;
+    background-color: white;
+    padding: 30px;
+}
+.additionalFeatures h2{
+    background-color: #0d8fd8;
+    width: 60%;
+    padding: 30px;
+    margin: 0 auto 30px auto;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding: 1rem 0;
+    border-radius: 12px;
+}
+
+.features div {
+    background-color: #0d8fd8;
+
+    min-height: 260px;
+    padding: 18px 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.features div:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 24px rgba(24, 180, 252, 0.15);
+}
+
+.features div h3 {
+    font-weight: 700;
+    color: white;
+    font-size: 2rem;
+}
+
+.features div p {
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+}
+.features button{
+    background-color: #fff;
+    color: #0d8fd8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.features input{
+    background-color: #fff;
+    color: #0d8fd8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#packingList{
+    background-color: #fff;
+    color: #0d8fd8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+footer {
+    text-align: center;
+    padding: 18px 0 10px 0;
+    margin: 10px 0 0 0;
+    background: none;
+    color: #0d8fd8;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.dark-mode {
+    background: #222 !important;
+    color: #fff !important;
+}
+
+.dark-mode .outfitSuggestions,
+.dark-mode .weatherSummary,
+.dark-mode .additionalFeatures{
+    background: #333 !important;
+        
+}
+
+.dark-mode .features div{
+    background: #fff !important;
+    color: #0d8fd8 !important;
+        
+}
+.dark-mode .features div p{
+    background: #fff !important;
+    color: #222 !important;
+        
+}
+.dark-mode .features div h3{
+    background: #fff !important;
+    color: #0d8fd8 !important;
+        
+}
+.dark-mode .features div button{
+    background: #fff !important;
+    color: #0d8fd8 !important;
+    border: 2px solid black !important;
+        
 
 }
-.carousel div:hover{
-    scale: 1.1;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+.dark-mode #packingList{
+    background: #222 !important;
+    color: #0d8fd8 !important;
 }
-.carousel div span{
-    font-size: 2rem;
+.dark-mode .features input{
+    background: #fff !important;
+    color: #0d8fd8 !important;
+    border: 2px solid black !important;
+}
+.dark-mode .outfitSuggestions h2,
+.dark-mode .additionalFeatures h2{
+    background: #fff !important;
+        color: #0d8fd8 !important;
+}
+
+.dark-mode .carousel div {
+    background: #fff !important;
+        color: #222 !important;
+}
+.dark-mode .carousel h3{
+    color: #0d8fd8 !important;
+}
+
+
+.dark-mode .heading {
+    color: #fff !important;
+}
+
+.dark-mode header{
+    background: #333 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    body{
+        background: linear-gradient(to bottom, #0d8fd8 0%, #f2f2f2 100%) !important;
+    }
+    .outfitSuggestions,
+    .additionalFeatures {
+        max-width: 80vw;
+        
+        padding: 20px 5px;
+    }
+
+    .outfitSuggestions h2 {
+        width: 90%;
+        margin-left: 15px;
+        padding: 20px;
+        font-size: 1.3rem;
+    }
+
+    .carousel,
+    .features {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
     
-}
-.carousel div h3{
+    .heading {
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+    }
+    .hero button{
+        
+        background-color: white;
+        color: #0d8fd8;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .heroContent div {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .outfitSuggestions,
+    .additionalFeatures {
+        padding: 10px 2px;
+        margin-top: 10px;
+        border-radius: 12px;
+
+    }
+    .additionalFeatures h2{
+        width: 100%;
+        margin-left: 0;
+        padding: 10px;
+        font-size: 1.3rem;
+        background-color: #0d8fd8;
+    }
+    .additionalFeatures input{
+        width: 100%;
+        
+    }
+    .outfitSuggestions h2 {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px;
+        font-size: 1.3rem;
+        background-color: #0d8fd8;
+    }
+
+    .carousel,
+    .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        
+    }
+
     
-    font-weight: 600;
-}
-.carousel div p{
+    .carousel div,
+    .features div {
+        max-width: 63vw;
+        background-color: #0d8fd8;
+        
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    header {
+        padding: 0.5rem 0.5rem;
+        position: relative;
+    }
+    #navLinks{
+        display: flex;   
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 999;
+        position: absolute;
+        top: 43px;
+        right: -500px;
+        width: 100%;
+        
+        background-color: #fff;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
     
-    font-weight: 600;
-}
-.additionalFeatures{
-    
-    margin-top: 100px;
-}
-.features{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5rem;
-    padding: 1rem;
-    border-radius: 12px;
-    
-}
-.features div{
-    background-color: #fff;
-    height: 300px;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    text-wrap: wrap;
-    max-width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-direction: column;
-}
-.features div:hover{
-    scale: 1.1;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
-}
-.features div h3{
-    
-    font-weight: 600;
-}
-.features div p{
-    
-    font-weight: 600;
-}
-footer{
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
+    }
+    #navLinks li{
+        text-align: center;
+    }
+    #packingForm{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }

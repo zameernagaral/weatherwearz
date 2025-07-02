@@ -3,137 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Preference</title>
+    <title>User Preferences</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #78d3fd, #f2f2f2);
+            transition: all 0.3s ease-in-out;
+            min-height: 100vh;
+        }
+        h2 {
+            text-align: center;
+            color: #18b4fc;
+            margin-top: 2rem;
+        }
+        section {
+            background-color: white;
+            max-width: 500px;
+            margin: 80px auto 0 auto;
+            padding: 2rem 2rem 1rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(24,180,252,0.10);
+        }
+        .back {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            border: none;
+            background-color: white;
+            color: rgb(24, 180, 252);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(24,180,252,0.08);
+        }
+        .preferences-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        select, input[type="checkbox"], input[type="radio"] {
+            margin-top: 0.5rem;
+        }
+        select, .save {
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #18b4fc;
+            background-color: white;
+            color: rgb(24, 180, 252);
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .save {
+            background-color: rgb(24, 180, 252);
+            color: white;
+            font-weight: 600;
+            margin: 0 auto;
+            display: block;
+            margin-top: 1rem;
+        }
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .toggle-switch input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .radio-group label {
+            font-weight: 400;
+        }
+        .status-message {
+            text-align: center;
+            margin-top: 1rem;
+            color: #18b4fc;
+            font-weight: 600;
+            display: none;
+        }
+        @media (max-width: 600px) {
+            section {
+                margin: 60px 10px 0 10px;
+                padding: 1rem;
+            }
+            .back {
+                top: 10px;
+                left: 10px;
+            }
+        }
+        body.dark-mode {
+            background: #222 !important;
+            color: #fff !important;
+        }
+        body.dark-mode section {
+            background: #333;
+            color: #fff;
+        }
+        body.dark-mode .save {
+            background: #fff;
+            color: #18b4fc;
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #78d3fd;
-        transition: all 0.3s ease-in-out;
-        overscroll-behavior: none;
-        height: 100%;
-    }
-    h2{
-        text-align: center;
-    }
-    section{
-        background-color: white;
-        max-width: 500px;
-        margin-left: 350px;
-        padding: 10px;
-        border-radius: 12px;
-        margin-top: 100px;
-        
-    }
-    section div:nth-of-type(1){
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .back{
-        position: absolute;
-        top: 50px;
-        left: 50px;
-        padding: 0.5rem 1rem;
-        border-radius: 12px;
-        border: none;
-        background-color: white;
-        color: rgb(24, 180, 252);
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-    }
-    
-    label{
-        font-weight: 600;
-        
-    }
-    select{
-        padding: 0.5rem 1rem;
-        border-radius: 12px;
-        
-        background-color: white;
-        color: rgb(24, 180, 252);
-        font-weight: 900;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-    }
-    option{
-        padding: 0.5rem 1rem;
-        border-radius: 12px;
-        
-        background-color: white;
-        color: rgb(24, 180, 252);
-        font-weight: 900;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-    }
-    input[type="checkbox"]{
-        
-        
-        color: rgb(24, 180, 252);
-        
-        cursor: pointer;
-    }
-    .save{
-        padding: 0.5rem 1rem;
-        border-radius: 12px;
-        border: none;
-        background-color: rgb(24, 180, 252);
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        margin-left: 200px;
-    }
-    footer{
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-    }
-</style>
-<body>
-    <button class="back">Back</button>
-  <!-- User Preferences Section -->
-  <section >
-    
-    <div>
-    
-      
-      <!-- Local Language Toggle -->
-      <div>
-          <h3>🌐 Language Preference</h3>
-          <label for="languageSelect">Choose your language:</label>
-          <select id="languageSelect" onchange="setLanguage()">
-              <option value="en">English</option>
-              <option value="kn">Kannada</option>
-              <option value="hi">Hindi</option>
-            </select>
-        </div>
-        <div >
-          <label >Dark Mode</label>
-          <input type="checkbox" id="darkModeToggle" >
-        </div>
-      <div><button class="save">Save</button></div>
-    </div>
+<body id="mainBody">
+    <button class="back" onclick="window.location.href='index.html'">← Back</button>
+    <h2>User Preferences</h2>
+    <!-- User Preferences Section -->
+    <section>
+        <form class="preferences-form" id="preferencesForm">
+            <!-- Local Language Toggle -->
+            <div>
+                <label for="languageSelect">🌐 Language Preference</label><br>
+                <select id="languageSelect" name="language">
+                    <option value="en">English</option>
+                    <option value="kn">Kannada</option>
+                    <option value="hi">Hindi</option>
+                </select>
+            </div>
+            <!-- Dark Mode Toggle -->
+            <div class="toggle-switch">
+                <label for="darkModeToggle">🌙 Dark Mode</label>
+                <input type="checkbox" id="darkModeToggle" name="darkMode">
+            </div>
+            <!-- Fashion Style Preference -->
+            <div>
+                <label>👗 Preferred Fashion Style</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="style" value="casual" checked> Casual</label>
+                    <label><input type="radio" name="style" value="formal"> Formal</label>
+                    <label><input type="radio" name="style" value="sporty"> Sporty</label>
+                </div>
+            </div>
+            <!-- Gender Preference -->
+            <div>
+                <label>🧑 Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male" checked> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+            </div>
+            <!-- Age Preference -->
+            <div>
+                <label for="ageRange">🎂 Age Group</label><br>
+                <select id="ageRange" name="ageRange">
+                    <option value="teen">Teen (13-19)</option>
+                    <option value="adult" selected>Adult (20-59)</option>
+                    <option value="senior">Senior (60+)</option>
+                </select>
+            </div>
+            <button type="submit" class="save">Save Preferences</button>
+            <div class="status-message" id="statusMsg"></div>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 WeatherWear. All rights reserved.</p>
+    </footer>
+    <script>
+        // Load saved preferences
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefs = JSON.parse(localStorage.getItem('weatherwear_prefs') || '{}');
+            if (prefs.language) document.getElementById('languageSelect').value = prefs.language;
+            if (prefs.darkMode) {
+                document.getElementById('darkModeToggle').checked = true;
+                document.getElementById('mainBody').classList.add('dark-mode');
+            }
+            if (prefs.style) document.querySelector(`input[name="style"][value="${prefs.style}"]`).checked = true;
+            if (prefs.gender) document.querySelector(`input[name="gender"][value="${prefs.gender}"]`).checked = true;
+            if (prefs.ageRange) document.getElementById('ageRange').value = prefs.ageRange;
+        });
 
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+            document.getElementById('mainBody').classList.toggle('dark-mode', this.checked);
+        });
 
-  </section>
+        // Save preferences
+        document.getElementById('preferencesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const prefs = {
+                language: document.getElementById('languageSelect').value,
+                darkMode: document.getElementById('darkModeToggle').checked,
+                style: document.querySelector('input[name="style"]:checked').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                ageRange: document.getElementById('ageRange').value
+            };
+            localStorage.setItem('weatherwear_prefs', JSON.stringify(prefs));
+            const msg = document.getElementById('statusMsg');
+            msg.textContent = "Preferences saved!";
+            msg.style.display = "block";
+            setTimeout(() => { msg.style.display = "none"; }, 2000);
+        });
 
-  <footer>
-    <p>&copy; 2025 WeatherWear. All rights reserved.</p>
-  </footer>
-  <script>
-    function setLanguage() {
-        const lang = document.getElementById('languageSelect').value;
-        alert(`Language switched to: ${lang === 'en' ? 'English' : lang === 'kn' ? 'Kannada' : 'Hindi'}`);
-        // You can implement actual language switching using i18n libraries or JSON translations here
-    }
-  </script>
+        // Language change alert
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            const lang = this.value;
+            alert(`Language switched to: ${lang === 'en' ? 'English' : lang === 'kn' ? 'Kannada' : 'Hindi'}`);
+        });
+    </script>
 </body>
 </html>
