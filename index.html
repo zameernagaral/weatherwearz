@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherWear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <div class="logo">WeatherWear</div>
+      <div>
+        <button id="menuToggle">
+          <svg height="24" width="24"  fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <nav id="navLinks">
+        <a href="index.html" class="home" >Home</a>
+        <a href="tools.html" class="tools">Tools</a>
+        <a href="outfit.html" class="outfit" >Outfits</a>
+        <a href="preference.html" class="preferences" >Preferences</a>
+      </nav>
+    </div>
+  
+  </header>
+  <video class="videoBackground" autoplay muted loop>
+    <source src="assets/videos/1893623-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    your browser does not support the video tag
+  </video>
+
+  <!-- Hero Section -->
+  <section class="hero" >
+    
+    <div class="heroContent">
+      <h1 class="heading" >Dress Smart, Not Just Stylish - WeatherWear Has You Covered!</h1>
+      <div>
+        <input type="text" placeholder="Enter your city..." >
+        <button >Search</button>
+      </div>
+    </div>
+
+
+  </section>
+  <br>
+
+  <!-- Weather Summary Card -->
+  <section class="weatherSummary" >
+    <div>
+      <h2 >Current Weather</h2>
+      <div>
+        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" >
+        <div>
+          <p >26°C</p>
+          <p >Rainy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outfit Recommendation Carousel -->
+  <section class="outfitSuggestions">
+    <h2 style="text-align: center;">Outfit Suggestions</h2>
+    <div class="carousel">
+      <div >
+        <span >☀️</span>
+        <h3 >Sunny</h3>
+        <p >Light cotton T-shirt, sunglasses, cap</p>
+      </div>
+      <div>
+        <span >🌧️</span>
+        <h3>Rainy</h3>
+        <p >Raincoat, waterproof shoes</p>
+      </div>
+      <div >
+        <span >❄️</span>
+        <h3 >Cold</h3>
+        <p >Wool sweater, gloves, scarf</p>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- User Preferences Section -->
+  <section >
+    <h2 >User Preferences</h2>
+    <form >
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div>
+        <label >Gender</label>
+        <select >
+          <option>Prefer not to say</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label >Age</label>
+        <input type="number" >
+      </div>
+      <div>
+        <label >Preferred Fashion Style</label>
+        <select >
+          <option>Casual</option>
+          <option>Formal</option>
+          <option>Sporty</option>
+        </select>
+      </div>
+      <div >
+        <label >Dark Mode</label>
+        <input type="checkbox" id="darkModeToggle" >
+      </div>
+    </form>
+  </section>
+
+
+
+  <!-- Additional Features Section -->
+<section class="additionalFeatures">
+    <h2  style="text-align: center;" >Smart Wardrobe & Travel Tools</h2>
+    <div class="features">
+  
+      <!-- Wardrobe Scanner -->
+      <div >
+        <h3>👕 Wardrobe Scanner</h3>
+        <p >Upload pictures of your clothes and get weather-based outfit recommendations from your wardrobe.</p>
+        <input type="file" multiple >
+      </div>
+  
+      <!-- ...existing code... -->
+      <!-- Geo-location Auto Detect -->
+      <div>
+        <h3>📍 Auto-Detect Location</h3>
+        <p>Click the button to auto-detect your location for accurate local weather and outfit suggestions.</p>
+        <button onclick="detectLocation()">Use My Location</button>
+      </div>
+
+      <!-- Fashion Tips of the Day -->
+      <div>
+        <h3>👗 Fashion Tip of the Day</h3>
+        <p>"Layering light jackets with bold accessories keeps you stylish and warm on breezy days."</p>
+      </div>
+
+      <!-- Shopping Integration -->
+      <div>
+        <h3>🛒 Shop Similar Looks</h3>
+        <p>Find suggested items on Amazon or Myntra that match today’s recommended outfit.</p>
+        <a href="https://www.amazon.in" target="_blank">Browse on Amazon</a><br>
+        <a href="https://www.myntra.com" target="_blank">Browse on Myntra</a>
+      </div>
+
+      <!-- Packing for a Trip -->
+      <div>
+        <h3>📦 Pack for Your Trip</h3>
+        <p>Get a personalized packing checklist based on your travel destination and dates.</p>
+        <form>
+          <input type="text" placeholder="Destination City">
+          <input type="date">
+          <button type="submit">Get Packing List</button>
+        </form>
+      </div>
+
+      <!-- Outfit History -->
+      <div>
+        <h3>🕒 Outfit History</h3>
+        <p>Track your recent outfit suggestions and what you wore recently.</p>
+        <ul>
+          <li>Sunny - Cotton shirt, hat</li>
+          <li>Rainy - Jacket, umbrella</li>
+          <li>Cold - Hoodie, scarf</li>
+        </ul>
+      </div>
+
+      <!-- Local Language Toggle -->
+      <div>
+        <h3>🌐 Language Preference</h3>
+        <label for="languageSelect">Choose your language:</label>
+        <select id="languageSelect" onchange="setLanguage()">
+          <option value="en">English</option>
+          <option value="kn">Kannada</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div>
+
+      <!-- Reminder Section -->
+      <div>
+        <h3>🔔 Daily Reminder</h3>
+        <p>Don't forget your umbrella! 🌂</p>
+      </div>
+<!-- ...existing code... -->
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 WeatherWear. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+  
+</body>
+</html>
