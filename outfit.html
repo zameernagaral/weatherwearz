@@ -37,7 +37,7 @@ header div:nth-of-type(1){
     font-weight: 700;
 }
 .hidden{
-    display: none;
+    display: none !important;
 }
 .logo{
     font-weight: 800;
@@ -45,24 +45,30 @@ header div:nth-of-type(1){
     color: #0d8fd8;
     
 }
-#navLinks{
+#navLinks {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     list-style: none;
     font-weight: 600;
     color: #0d8fd8;
 }
-#navLinks a{
+
+#navLinks a {
     text-decoration: none;
     color: #0d8fd8;
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s, transform 0.3s;
+    font-size: 1.1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
 }
 
-#navLinks a:hover{
-    scale: 1.1;
-    
-
+#navLinks a:hover,
+#navLinks a.active {
+    color: #fff;
+    background: #0d8fd8;
+    transform: scale(1.08);
 }
+
 .heading{
     font-weight: 800;
     font-size: 3rem;
@@ -154,6 +160,41 @@ header div:nth-of-type(1){
 .change:hover{
     scale: 1.1;
 }
+#menuToggle {
+    color: grey;
+    font-weight: 700;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .heading{
+        font-size: 1.5rem;
+    }
+    .subtitle{
+        font-size: 0.8rem;
+    }
+    #navLinks{
+        display: flex;   
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 999;
+        position: absolute;
+        top: 50px;
+        right: -500px;
+        width: 100%;
+        
+        background-color: #fff;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    
+    }
+    #navLinks li{
+        text-align: center;
+    }
+}
 
 </style>
 <body id="mainBody">
@@ -203,8 +244,9 @@ header div:nth-of-type(1){
         let subtitle = document.querySelector('.subtitle');
         const degreeSymbol = '\u00B0';
         let change = document.querySelector('.change');
-
+        
         let pref = JSON.parse(localStorage.getItem('weatherwear_prefs') || '{}');
+        
         if (!pref.gender) {
          alert("Please complete your user prefrences. Dont forget to save it!");   
          window.location.href = 'preference.html?city=' + city + '&temp=' + temp + '&description=' + description + '&main=' + main;
@@ -1114,6 +1156,7 @@ if (pref.ageRange == 'teen') {
     const navLinks = document.getElementById('navLinks');
     const logo = document.querySelector('.logo');
     menuToggle.classList.add('hidden');
+    
     
 
     // Your mobile-only JS code here
