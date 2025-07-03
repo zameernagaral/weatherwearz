@@ -22,9 +22,9 @@
         </button>
       </div>
       <nav id="navLinks">
-        <a href="index.html" class="home" >Home</a>
-        <a href="#tools" class="tools">Tools</a>
-        <a href="preference.html" class="preferences" >Preferences</a>
+        <a href="index.html" class="home" data-key="home"></a>
+        <a href="#tools" class="tools" data-key="tools"></a>
+        <a href="preference.html" class="preferences" data-key="preferences" ></a>
       </nav>
     </div>
   
@@ -34,10 +34,10 @@
   <section class="hero" >
     
     <div class="heroContent">
-      <h1 class="heading" >Dress Smart, Not Just Stylish - WeatherWear Has You Covered!</h1>
+      <h1 class="heading" data-key="hero_heading" ></h1>
       <div>
-        <input type="text" placeholder="Enter your city..." class="inputform" >
-        <button class="search" >Search</button>
+        <input type="text" placeholder="Enter your city..." class="inputform" data-key="placeholder_city" >
+        <button class="search" data-key="search" ></button>
       </div>
     </div>
 
@@ -49,22 +49,22 @@
 
   <!-- Outfit Recommendation Carousel -->
   <section class="outfitSuggestions">
-    <h2 style="text-align: center;">Outfit Suggestions</h2>
+    <h2 style="text-align: center;" data-key="outfit_heading"></h2>
     <div class="carousel">
       <div  class="sunny">
         <span >☀️</span>
-        <h3 >Sunny</h3>
-        <p >Light cotton T-shirt, sunglasses, cap</p>
+        <h3 data-key="sunny" ></h3>
+        <p data-key="sunny_desc" ></p>
       </div>
       <div class="rainy">
         <span >🌧️</span>
-        <h3>Rainy</h3>
-        <p >Raincoat, waterproof shoes</p>
+        <h3 data-key="rainy">Rainy</h3>
+        <p data-key="rainy_desc"></p>
       </div>
       <div class="cold" >
         <span >❄️</span>
-        <h3 >Cold</h3>
-        <p >Wool sweater, gloves, scarf</p>
+        <h3 data-key="cold"></h3>
+        <p data-key="cold_desc" ></p>
       </div>
     </div>
   </section>
@@ -74,74 +74,57 @@
 
   <!-- Additional Features Section -->
 <section class="additionalFeatures" id="tools">
-    <h2  style="text-align: center;" >Smart Wardrobe & Travel Tools</h2>
+    <h2  style="text-align: center;" data-key="features_heading"></h2>
     <div class="features">
   
       <!-- Wardrobe Scanner -->
       <div >
-        <h3>👕 Wardrobe Scanner</h3>
-        <p >Upload pictures of your clothes and get weather-based outfit recommendations from your wardrobe.</p>
+        <h3 data-key="wardrobe_title"></h3>
+        <p data-key="wardrobe_desc"></p>
         <input type="file" multiple >
       </div>
   
       <!-- ...existing code... -->
       <!-- Geo-location Auto Detect -->
       <div>
-        <h3>📍 Auto-Detect Location</h3>
-        <p>Click the button to auto-detect your location for accurate local weather and outfit suggestions.</p>
-        <button onclick="detectLocation()">Use My Location</button>
+        <h3 data-key="location_title"></h3>
+        <p data-key="location_desc"></p>
+        <button onclick="detectLocation()" data-key="location_button"></button>
       </div>
 
  <!-- Fashion Tips of the Day -->
  <div>
-  <h3>👗 Fashion Tip of the Day</h3>
-  <p id="fashionTip">Layering light jackets with bold accessories keeps you stylish and warm on breezy days.</p>
-  <button id="newTipBtn">New Tip</button>
+  <h3 data-key="fashion_title"></h3>
+  <p id="fashionTip" data-key="fashion_tip"></p>
+  <button id="newTipBtn" data-key="new_tip"></button>
 </div>
 <!-- Packing for a Trip -->
 <div>
-  <h3>📦 Pack for Your Trip</h3>
-  <p>Get a personalized packing checklist based on your travel destination and dates.</p>
+  <h3 data-key="trip_title"></h3>
+  <p data-key="trip_desc"></p>
   <form id="packingForm">
-    <input type="text" placeholder="Destination City" id="tripCity">
+    <input type="text" placeholder="Destination City" id="tripCity" data-key="trip_placeholder">
     
-    <button type="submit">Get Packing List</button>
+    <button type="submit" data-key="trip_button"></button>
   </form>
   <ul id="packingList" class="hidden"></ul>
 </div>
 
       <!-- Reminder Section -->
       <div>
-        <h3>🔔 Daily Reminder</h3>
-        <p>Don't forget your umbrella! 🌂</p>
+        <h3 data-key="reminder_title"></h3>
+        <p data-key="reminder_text"></p>
       </div>
 <!-- ...existing code... -->
     </div>
   </section>
   <footer>
-    <p>&copy; 2025 WeatherWear. All rights reserved.</p>
+    <p data-key="footer"></p>
   </footer>
   <script src="script.js"></script>
+  <script src="translate.js"></script>
   
   
 </body>
 </html>
 
-<!-- 
-
-ageRange
-: 
-"teen"
-darkMode
-: 
-true
-gender
-: 
-"male"
-language
-: 
-"kn"
-style
-: 
-"casual" 
-weatherwear_prefs-->

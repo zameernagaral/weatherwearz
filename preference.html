@@ -123,15 +123,7 @@
     <!-- User Preferences Section -->
     <section>
         <form class="preferences-form" id="preferencesForm">
-            <!-- Local Language Toggle -->
-            <div>
-                <label for="languageSelect">🌐 Language Preference</label><br>
-                <select id="languageSelect" name="language">
-                    <option value="en">English</option>
-                    <option value="kn">Kannada</option>
-                    <option value="hi">Hindi</option>
-                </select>
-            </div>
+          
             <!-- Dark Mode Toggle -->
             <div class="toggle-switch">
                 <label for="darkModeToggle">🌙 Dark Mode</label>
@@ -188,7 +180,7 @@
             console.log(outfitsGo);
             
 
-            if (prefs.language) document.getElementById('languageSelect').value = prefs.language;
+           
             if (prefs.darkMode) {
                 document.getElementById('darkModeToggle').checked = true;
                 document.getElementById('mainBody').classList.add('dark-mode');
@@ -207,7 +199,7 @@
         document.getElementById('preferencesForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const prefs = {
-                language: document.getElementById('languageSelect').value,
+               
                 darkMode: document.getElementById('darkModeToggle').checked,
                 style: document.querySelector('input[name="style"]:checked').value,
                 gender: document.querySelector('input[name="gender"]:checked').value,
@@ -223,11 +215,8 @@
             }
         });
 
-        // Language change alert
-        document.getElementById('languageSelect').addEventListener('change', function() {
-            const lang = this.value;
-            alert(`Language switched to: ${lang === 'en' ? 'English' : lang === 'kn' ? 'Kannada' : 'Hindi'}`);
-        });
+      
     </script>
+    <script src="translate.js"></script>
 </body>
 </html>

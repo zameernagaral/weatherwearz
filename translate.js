@@ -1,16 +1,21 @@
-const switcher = document.getElementById("languageSwitcher");
-
-switcher.addEventListener("change", async function () {
-    const lang = this.value;
+async function loadLanguage(lang) {
     const res = await fetch(`${lang}.json`);
     const translations = await res.json();
 
     document.querySelectorAll("[data-key]").forEach(elem => {
         const key = elem.getAttribute("data-key");
-        elem.textContent = translations[key];
-    });
-});
 
-// Default to English on page load
-switcher.value = "en";
-switcher.dispatchEvent(new Event("change"));
+        if (elem.tagName === "INPUT") {
+            elem.setAttribute("placeholder", translations[key]);
+        } else if (elem.tagName === "BUTTON") {
+            elem.textContent = translations[key];
+        } else {
+            elem.textContent = translations[key];
+        }
+    });
+}
+
+// Load default language
+loadLanguage("en");
+
+  
